@@ -1,0 +1,16 @@
+{{ if (eq .FirstSection.Title "Recettes") }}
+
+    {{ with $.Params.cover.image }}
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="{{ . | absURL }}"/>
+    {{ end }}
+    {{ with $.Params.cover.youtube }}
+    <meta name="twitter:card" content="player"/>
+    <meta name="twitter:player" content="https://www.youtube.com/embed/{{ . }}?rel=0"/>
+    <meta name="twitter:player:width" content="435">
+    <meta name="twitter:player:height" content="251">
+    {{ end }}
+    <meta name="twitter:title" content="{{ .Title }}"/>
+    <meta name="twitter:description" content="De {{ with $.Params.chefs }}{{ . }}{{ end }}"/>
+
+{{ end }}

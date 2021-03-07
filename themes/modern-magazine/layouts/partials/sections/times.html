@@ -1,0 +1,59 @@
+<section class="times py-0 my-0">
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-10 col-lg-12 col-xl-10">
+
+                <p class="recipe-time">
+
+                    <!-- total -->
+                    {{ with .Params.times }}
+                    <time class="preparation">
+                        {{ partial "icons/hourglass.html" }}
+                        <span class="value">{{ partial "helpers/time.html" (add (int .preparation) (int .cooking)) }}</span>
+                    </time>
+                    {{ end }}
+
+                    <!-- preparation -->
+                    {{ with .Params.times.preparation }}
+                    <time class="preparation ms-3">
+                        {{ partial "icons/knife.html" }}
+                        <span class="value ms-1">{{ partial "helpers/time.html" . }}</span>
+                    </time>
+                    {{ end }}
+
+                    <!-- cooking -->
+                    {{ with .Params.times.cooking }}
+                    <time class="cooking ms-3">
+                        {{ partial "icons/cauldron.html" }}
+                        <span class="value ms-1">{{ partial "helpers/time.html" . }}</span>
+                    </time> 
+                    {{ end }}
+
+                    <br class="d-block d-md-none mt-2" style="content:''" />
+
+                    <!-- ingredients pax -->
+                    {{ with .Params.ingredients_pax }}
+                    <time class="ingredients-pax ms-md-5">
+                        {{ partial "icons/utensils.html" }}
+                        <span class="value ms-1">{{ . }} Personnes</span>
+                    </time> 
+                    {{ end }}
+
+                    <!-- ingredients pieces -->
+                    {{ with .Params.ingredients_pieces }}
+                    <time class="ingredients-pax ms-md-5">
+                        {{ partial "icons/utensils.html" }}
+                        <span class="value ms-1">{{ . }} Pieces</span>
+                    </time> 
+                    {{ end }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,2 @@
+{{ $hours := (div . 60) }} {{ $min := (mod . 60) }} {{ $value := (printf "%d h %d min" $hours $min) }} {{ if eq (int $hours) 0 }} {{ $value = (printf "%d min" $min) }} {{ end }} {{ if eq (int $min) 0 }} {{ $value = (printf "%d h" $hours) }} {{ end }}
+{{ return $value }}

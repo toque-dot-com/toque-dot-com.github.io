@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="chefs-title py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1>{{ .Title }}</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {{ range .Pages.ByPublishDate.Reverse }}
+            <div class="col-12 col-md-4 col-lg-3 col-xl-2">
+                <div class="position-relative text-center py-1">
+                    <img src="/img/chefs/{{ .Title | urlize}}.jpg" class="rounded-circle" width="150" height="150" />
+                    <p class="name fs-5 fw-bolder pt-2">
+                        <a href="/chefs/{{ .Title | urlize}}" class="stretched-link link-dark text-decoration-none">{{ .Title }}</a>
+                    </p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

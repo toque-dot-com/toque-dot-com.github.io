@@ -1,0 +1,11 @@
+svg.icon {
+    height: 25px;
+}
+
+svg.icon .primary {
+    color: black;
+}
+
+svg.icon .secondary {
+    color: lightgrey;
+}

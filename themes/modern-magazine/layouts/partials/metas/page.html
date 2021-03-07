@@ -1,0 +1,15 @@
+<link rel="canonical" href="{{ .Permalink | absURL }}">
+
+{{ if .IsHome }}
+    <meta name="description" content="Toqué - Les recettes des grands chefs !">
+    <!--<meta name="keywords" content="">-->
+{{ end }}
+
+{{ if (eq .FirstSection.Title "Recettes") }}
+    <meta name="description" content="{{ .Title }}{{ with .Params.chefs }} de {{ . }}{{end}}">
+    <meta name="keywords" content="{{ .Title }}, {{ with .Params.ingredients }}{{ delimit . ", " }}{{ end }}">
+{{ end }}
+
+{{ if (eq .Data.Plural "chefs") }}
+<meta name="description" content="Les recettes de {{ .Data.Term }}">
+{{ end }}

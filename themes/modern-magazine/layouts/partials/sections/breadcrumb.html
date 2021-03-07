@@ -1,0 +1,30 @@
+<section class="breadcrumb-section pt-4 pb-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-12 col-xl-10">
+                <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';">
+                    <ol class="breadcrumb">
+                        {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ define "breadcrumbnav" }}
+{{ if .p1.Parent }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 )  }}
+{{ else if not .p1.IsHome }}
+    {{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 )  }}
+{{ end }}
+    {{ if not (eq .p1.FirstSection.Title .p1.Title) }}
+    <li class="breadcrumb-item{{ if eq .p1 .p2 }} active{{ end }}"{{ if eq .p1 .p2 }} aria-current="page"{{ end }}>
+        {{ if eq .p1 .p2 }}
+            {{ .p1.Title }}
+        {{ else }}
+            <a class="text-decoration-none link-dark fw-bold" href="{{ .p1.Permalink }}">{{ .p1.Title | pluralize }}</a>
+        {{ end }}
+    </li>
+    {{ end }}
+{{ end }}

@@ -1,0 +1,73 @@
+<section class="ingredients py-0 my-0">
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-10 col-lg-5 col-xl-4">
+
+                {{ with .Params.ingredients_list }}
+                {{ range $elem_index, $elem_val := . }}
+                    <h3>{{ $elem_val }}</h3>
+                    <ul>
+                    {{ $myvar := (printf "ingredients%d" $elem_index) }}
+                    {{ with ($.Param $myvar) }}
+                    {{ range . }}
+                
+                        {{ $name := . }}
+                        {{ $found := false }}
+                        {{ with ($.Param "ingredients") }}
+                        {{ range . }}
+                            {{ if and (not $found) (in (lower $name) (lower .)) }}
+                            {{ $found = true }}
+                            {{ $href := print (absURL "ingredients/") (urlize .) }}
+                                <li><a class="link-dark" href="{{ $href }}">{{ $name }}</a></li>
+                            {{ end }}
+                        {{ end }}
+                        {{ end }}
+                        {{ if (not $found) }}
+                            <li>{{ $name }}</li>
+                        {{ end }}
+                
+                    {{ end }}
+                    {{ end }}
+                    </ul>
+                
+                {{ end }}
+                {{ else }}
+                    <h3>Ingrédients</h3>
+                    <ul>
+                    {{ $myvar := (printf "ingredients%d" 0) }}
+                    {{ with ($.Param $myvar) }}
+                    {{ range . }}
+                
+                        {{ $name := . }}
+                        {{ $found := false }}
+                        {{ with ($.Param "ingredients") }}
+                        {{ range . }}
+                            {{ if and (not $found) (in (lower $name) (lower .)) }}
+                            {{ $found = true }}
+                            {{ $href := print (absURL "ingredients/") (urlize .) }}
+                                <li><a class="link-dark" href="{{ $href }}">{{ $name }}</a></li>
+                            {{ end }}
+                        {{ end }}
+                        {{ end }}
+                        {{ if (not $found) }}
+                            <li>{{ $name }}</li>
+                        {{ end }}
+                
+                    {{ end }}
+                    {{ end }}
+                    </ul>
+                
+                {{ end }}
+
+            </div>
+
+            <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+                {{ .Content }}
+            </div>
+
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,43 @@
+<section class="title">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            
+            <div class="col-12 col-md-10 col-lg-12 col-xl-10">
+                
+                <h1 class="h1 pb-2">{{ .Title }}</h1>
+
+                <div class="row align-items-center py-2 border-top border-bottom">
+                    
+                    {{ with .Params.chefs }}
+                    <div class="col-auto">                    
+                        <img src="/img/chefs/{{ . | urlize}}.jpg" class="float-start rounded-circle" width="75" height="75" />
+                    </div>
+                    {{ end }}
+
+                    <div class="col position-relative">
+                        
+                        {{ with .Params.chefs }}
+                        <h6 class="h6"> 
+                            <a class="stretched-link link-dark fw-bold text-decoration-none" href="/chefs/{{ . | urlize}}">
+                                {{.}}
+                            </a>
+                        </h6>
+                        {{ end }}
+
+                        {{ if not .PublishDate.IsZero }}
+                        {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+                        {{ $dateFormat := .Site.Params.dateFormat | default "2 January 2006" }}
+                            <time datetime="{{ $dateTime }}">Publié le {{ .Date.Day }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) | humanize }} {{ .Date.Year }}</time>
+                        {{ end }}
+
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+        
+    </div>
+</section>

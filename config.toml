@@ -1,4 +1,29 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://toqué.com"
+languageCode = "fr-fr"
+title = "Toqué"
 theme = "modern-magazine"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Recettes"
+    url = "/recettes/"
+    weight = 2
+  [[menu.main]]
+    name = "Chefs"
+    url = "/chefs/"
+    weight = 3    
+  [[menu.main]]
+    name = "Ingrédients"
+    url = "/ingredients/"
+    weight = 4
+
+[taxonomies]
+  ingredient = "ingredients"
+  chef = "chefs"
+
+[outputs]
+  home = ["HTML", "RSS"]

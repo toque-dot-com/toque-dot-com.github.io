@@ -1,0 +1,39 @@
+{{ define "main" }}
+<section class="chefs-title py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <h1 class="text-center">{{ .Title | humanize }}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="recipes py-4 my-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                {{ range $elem_index, $elem_val := .Pages.ByPublishDate.Reverse }}
+                {{ if eq (mod (add $elem_index 3) 3) 0 }}
+                    {{ partial "sections/recipe-card.html" . }}
+                {{ end }}
+                {{ end }}
+            </div>
+            <div class="col-md-4">
+                {{ range $elem_index, $elem_val := .Pages.ByPublishDate.Reverse }}
+                {{ if eq (mod (add $elem_index 3) 4) 0 }}
+                    {{ partial "sections/recipe-card.html" . }}
+                {{ end }}
+                {{ end }}
+            </div>
+            <div class="col-md-4">
+                {{ range $elem_index, $elem_val := .Pages.ByPublishDate.Reverse }}
+                {{ if eq (mod (add $elem_index 3) 5) 0 }}
+                    {{ partial "sections/recipe-card.html" . }}
+                {{ end }}
+                {{ end }}
+            </div>                        
+        </div>
+    </div>
+</section>
+{{ end }}

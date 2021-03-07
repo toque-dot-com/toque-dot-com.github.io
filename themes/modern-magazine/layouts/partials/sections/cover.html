@@ -1,0 +1,28 @@
+<section class="cover py-4">
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-10 col-lg-12 col-xl-10">
+
+                <!-- cover video -->
+                {{ $title := .Title }} {{ with .Params.cover.image }}
+                <div class="ratio ratio-16x9">
+                    <img src="{{ . }}" class="img-fluid img-thumbnail" alt="">
+                </div>
+                {{ end }}
+
+                <!-- cover image -->
+                {{ with .Params.cover.youtube }}
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/{{ . }}?rel=0" title="{{ $title }}" allowfullscreen>
+                    </iframe>
+                </div>
+                {{ end }}
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

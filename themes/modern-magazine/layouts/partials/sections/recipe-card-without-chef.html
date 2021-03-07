@@ -1,0 +1,46 @@
+<article class="card mb-3">
+
+    <!-- cover video -->
+    {{ $title := .Title }} 
+    <a href="{{ .Permalink }}">
+        {{ with .Params.cover.image }}
+            <img src="{{ . }}" class="img-fluid" alt="">
+        {{ end }}
+
+        <!-- cover image -->
+        {{ with .Params.cover.youtube }}
+        <div class="ratio ratio-16x9">
+            <iframe 
+                src="https://www.youtube.com/embed/{{ . }}?rel=0" 
+                title="{{ $title }}" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        {{ end }}
+    </a>
+
+    <div class="card-body">
+        <h5 class="card-title">
+            <a class="fs-4 link-dark text-decoration-none" href="{{ .Permalink }}">
+                {{ .Title }}
+            </a>
+        </h5>
+        <div class="card-text pt-2">
+        {{ $page := . }}
+        {{ range where .Site.Pages "Kind" "section"}}
+            {{ if and ($page.IsDescendant .) (not (eq .FirstSection.Title .Title)) }}
+            <a role="button" class="btn btn-sm btn-light fw-bold me-1 mb-1" href="{{ .Permalink }}">
+                {{ .Title | humanize }}
+            </a>
+            {{ end }}
+        {{ end }}
+        </div>
+    </div>
+    <div class="card-footer position-relative">
+        <small class="d-block text-muted">
+        {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+        {{ $dateFormat := .Site.Params.dateFormat | default "2 January 2006" }}
+        <time datetime="{{ $dateTime }}">Publié le {{ .Date.Day }} {{ index $.Site.Data.mois (printf "%d" .Date.Month) | humanize }} {{ .Date.Year }}</time>
+        </small>
+    </div>
+</article>
