@@ -2,6 +2,7 @@ baseURL = "https://toqué.com"
 languageCode = "fr-fr"
 title = "Toqué"
 theme = "modern-magazine"
+removePathAccents = true
 
 [menu]
   [[menu.main]]
