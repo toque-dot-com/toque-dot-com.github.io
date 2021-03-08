@@ -22,6 +22,6 @@ jobs:
           publish_dir: ./public
           keep_files: false
           publish_branch: gh-pages
-          #cname: example.com
+          cname: xn--toqu-epa.com
           #user_name: 'github-actions[bot]'
           #user_email: 'github-actions[bot]@users.noreply.github.com'
