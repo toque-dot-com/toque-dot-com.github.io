@@ -9,3 +9,7 @@ svg.icon .primary {
 svg.icon .secondary {
     color: lightgrey;
 }
+
+.navbar .title {
+    margin-left: 8px;
+}
