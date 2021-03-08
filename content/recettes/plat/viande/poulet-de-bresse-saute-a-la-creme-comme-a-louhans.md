@@ -10,16 +10,17 @@ cover:
 ingredients: 
   - poulet
   - beurre
-  - oignons
+  - oignon
   - ail
   - carotte
   - farine
+  - vin blanc
   - thym
   - laurier
   - persil
   - poireau
   - céleri
-  - crème fraîche
+  - crème
   - sel
   - poivre
 
@@ -32,7 +33,7 @@ ingredients0:
   - 3 gousses d'ail en chemise
   - 1 carotte
   - 1 petite cuillerée à soupe de farine
-  - 50 cl de Mâcon blanc
+  - 50 cl de vin blanc (Mâcon)
   - 50 cl d'eau
   - thym
   - 1/4 de feuille de laurier

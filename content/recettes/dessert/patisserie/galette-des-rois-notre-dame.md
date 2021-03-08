@@ -13,7 +13,7 @@ ingredients:
   - sel
   - lait
   - crème
-  - oeuf
+  - œuf
   - sucre
   - cannelle
   - amande
@@ -40,7 +40,7 @@ ingredients0:
 ingredients1:
   - 350 g de lait
   - 175 g de crème liquide
-  - 100 g d'oeufs entiers
+  - 100 g d'œufs entiers
   - 110 g de sucre semoule
   - 30 g de poudre à crème
   - 5 g de farine
@@ -51,7 +51,7 @@ ingredients2:
   - 125 g de beurre
   - 125 de sucre (en biodynamie)
   - 125 g de poudre d'amande torréfiée
-  - 75 g d'oeufs entiers
+  - 75 g d'œufs entiers
   - 2 g de cannelle
 
 ingredients3:
@@ -65,13 +65,13 @@ ingredients4:
   - 125 g de beurre
   - 125 de sucre (en biodynamie)
   - 125 g d'amandes en poudre torréfiées
-  - 75 g d'oeufs
+  - 75 g d'œufs
   - 8 g de cannelle
 
 ingredients5:
   - Pâte feuilletée
   - Frangipane
-  - 1 jaune d'oeuf battu
+  - 1 jaune d'œuf battu
 
 times:
   preparation: 180
